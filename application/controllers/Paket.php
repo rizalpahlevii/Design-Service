@@ -9,6 +9,9 @@ class Paket extends CI_Controller
 	public function __construct()
 	{
 		parent::__construct();
+		if ($this->session->userdata('status') != "login") {
+			redirect('backoffice');
+		}
 		$this->content = 'admin/paket/';
 		$this->template_view = 'admin/template';
 		$this->load->model('Paket_model', 'paket');

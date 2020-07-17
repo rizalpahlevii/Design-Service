@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Bank extends CI_Controller
+class Dashboard extends CI_Controller
 {
 	protected $content;
 	protected $template_view;
@@ -9,6 +9,10 @@ class Bank extends CI_Controller
 	public function __construct()
 	{
 		parent::__construct();
+		if ($this->session->userdata('status') != "login") {
+			redirect('backoffice');
+		}
+
 		$this->content = 'admin/';
 		$this->template_view = 'admin/template';
 	}

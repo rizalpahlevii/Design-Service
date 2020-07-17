@@ -101,7 +101,7 @@
 										<a href="#" class="btn btn-default btn-flat">Profile</a>
 									</div>
 									<div class="pull-right">
-										<a href="#" class="btn btn-default btn-flat">Sign out</a>
+										<a href="<?= site_url('backoffice/logout') ?>" class="btn btn-default btn-flat">Sign out</a>
 									</div>
 								</li>
 							</ul>
@@ -132,7 +132,7 @@
 				<!-- sidebar menu: : style can be found in sidebar.less -->
 				<ul class="sidebar-menu" data-widget="tree">
 					<li class="header">MAIN NAVIGATION</li>
-					<li><a href="<?= site_url('/') ?>"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
+					<li><a href="<?= site_url('/dashboard') ?>"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
 					<li><a href="<?= site_url('kategori/') ?>"><i class="fa fa-sticky-note"></i> <span>Kategori</span></a></li>
 					<li><a href="<?= site_url('paket/') ?>"><i class="fa fa-archive"></i> <span>Paket</span></a></li>
 					<li><a href="<?= site_url('user/') ?>"><i class="fa fa-user"></i> <span>User</span></a></li>
