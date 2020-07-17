@@ -28,7 +28,9 @@
 	<link rel="stylesheet" href="<?php echo base_url('assets/') ?>bower_components/bootstrap-daterangepicker/daterangepicker.css">
 	<!-- bootstrap wysihtml5 - text editor -->
 	<link rel="stylesheet" href="<?php echo base_url('assets/') ?>plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
-
+	<link rel="stylesheet" href="<?= base_url('assets/') ?>bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
+	<meta name="csrf-token" content="ehwtheVoXi91TaqxfZwxl2cpLhyNeVg7odBs1OF9" />
+	<link rel="stylesheet" href="<?= base_url('assets/') ?>bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
 	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 	<!--[if lt IE 9]>
@@ -38,6 +40,8 @@
 
 	<!-- Google Font -->
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+	<script src="<?php echo base_url('assets/') ?>bower_components/jquery/dist/jquery.min.js"></script>
+
 </head>
 
 <body class="hold-transition skin-red sidebar-mini">
@@ -130,6 +134,7 @@
 					<li class="header">MAIN NAVIGATION</li>
 					<li><a href="<?= site_url('/') ?>"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
 					<li><a href="<?= site_url('kategori/') ?>"><i class="fa fa-archive"></i> <span>Kategori</span></a></li>
+					<li><a href="<?= site_url('paket/') ?>"><i class="fa fa-archive"></i> <span>Paket</span></a></li>
 				</ul>
 			</section>
 			<!-- /.sidebar -->
@@ -388,9 +393,11 @@
 	<!-- AdminLTE App -->
 	<script src="<?php echo base_url('assets/') ?>dist/js/adminlte.min.js"></script>
 	<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-	<script src="<?php echo base_url('assets/') ?>dist/js/pages/dashboard.js"></script>
 	<!-- AdminLTE for demo purposes -->
 	<script src="<?php echo base_url('assets/') ?>dist/js/demo.js"></script>
+	<script src="<?php echo base_url('assets/') ?>bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+	<script src="<?php echo base_url('assets/') ?>bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js">
+	</script>
 </body>
 
 </html>

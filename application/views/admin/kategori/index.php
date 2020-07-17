@@ -29,7 +29,7 @@
 										<td><?= $row['nama_kategori'] ?></td>
 										<td>
 											<a href="<?= site_url('kategori/edit/' . $row['id_kategori']) ?>" class="btn btn-warning btn-sm"><i class="fa fa-edit"></i> Edit</a>
-											<a href="<?= site_url('kategori/hapus/' . $row['id_kategori']) ?>" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Hapus</a>
+											<a onclick="return confirm('Yakin ingin menghapus data?')" href="<?= site_url('kategori/hapus/' . $row['id_kategori']) ?>" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Hapus</a>
 
 										</td>
 									</tr>
