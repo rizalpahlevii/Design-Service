@@ -9,7 +9,7 @@
 				<div class="row">
 					<div class="col-md-6"> <?php echo $this->session->flashdata('message'); ?></div>
 				</div>
-				<a href="<?= site_url('backoffice/bank/tambah/') ?>" class="btn btn-primary mb-2"><i class="fa fa-plus"></i> Tambah
+				<a href="<?= site_url('backoffice/bank/tambah') ?>" class="btn btn-primary mb-2"><i class="fa fa-plus"></i> Tambah
 					Data</a>
 				<div class="row">
 					<div class="col-md-8">
@@ -18,6 +18,7 @@
 								<tr>
 									<th>#</th>
 									<th>Nama Bank</th>
+									<th>Nama Pemilik</th>
 									<th>No Rekening</th>
 									<th>Foto Bank</th>
 									<th>Aksi</th>
@@ -29,8 +30,9 @@
 									<tr>
 										<td><?php echo $no ?></td>
 										<td><?= $row->nama_bank ?></td>
+										<td><?= $row->nama_pemilik ?></td>
 										<td><?= $row->no_rekening ?></td>
-										<td><?= $row->foto_bank ?></td>
+										<td><img src="<?= base_url('assets/foto_bank/' . $row->foto_bank) ?>" width="60px" alt=""></td>
 										<td>
 											<a href="<?= site_url('backoffice/bank/edit/' . $row->id_bank) ?>" class="btn btn-warning btn-sm"><i class="fa fa-edit"></i> Edit</a>
 											<a onclick="return confirm('Yakin ingin menghapus data?')" href="<?= site_url('backoffice/bank/hapus/' . $row->id_bank) ?>" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Hapus</a>

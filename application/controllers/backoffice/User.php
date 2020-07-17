@@ -52,6 +52,7 @@ class User extends CI_Controller
 	}
 	public function edit($id)
 	{
+
 		$this->form_validation->set_rules('username', 'Username', 'required|edit_unique_admin[admin.username.' . $id . ']');
 		if ($this->form_validation->run() == false) {
 			$data['page'] = 'Edit Admin / User';
