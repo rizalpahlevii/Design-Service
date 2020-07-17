@@ -28,9 +28,9 @@
 										<td><?php echo $no ?></td>
 										<td><?= $row->username ?></td>
 										<td>
-											<a href="<?= site_url('user/edit/' . $row->id_admin) ?>" class="btn btn-warning btn-sm"><i class="fa fa-edit"></i> Edit</a>
-											<a href="<?= site_url('user/edit_password/' . $row->id_admin) ?>" class="btn btn-warning btn-sm"><i class="fa fa-key"></i> Edit Password</a>
-											<a onclick="return confirm('Yakin ingin menghapus data?')" href="<?= site_url('user/hapus/' . $row->id_admin) ?>" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Hapus</a>
+											<a href="<?= site_url('backoffice/user/edit/' . $row->id_admin) ?>" class="btn btn-warning btn-sm"><i class="fa fa-edit"></i> Edit</a>
+											<a href="<?= site_url('backoffice/user/edit_password/' . $row->id_admin) ?>" class="btn btn-warning btn-sm"><i class="fa fa-key"></i> Edit Password</a>
+											<a onclick="return confirm('Yakin ingin menghapus data?')" href="<?= site_url('backoffice/user/hapus/' . $row->id_admin) ?>" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Hapus</a>
 
 										</td>
 									</tr>

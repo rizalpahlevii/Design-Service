@@ -6,7 +6,7 @@
 				<h3 class="box-title"><?= $page ?></h3>
 			</div>
 			<div class="box-body">
-				<form action="<?= site_url('paket/simpan') ?>" method="POST">
+				<form action="<?= site_url('backoffice/paket/simpan') ?>" method="POST">
 					<div class="row">
 						<div class="col-md-6">
 							<div class="form-group">

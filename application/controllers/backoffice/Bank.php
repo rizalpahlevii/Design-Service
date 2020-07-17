@@ -9,12 +9,16 @@ class Bank extends CI_Controller
 	public function __construct()
 	{
 		parent::__construct();
-		$this->content = 'admin/';
+		if ($this->session->userdata('status') != "login") {
+			redirect('backoffice/auth');
+		}
+		$this->content = 'admin/bank/';
 		$this->template_view = 'admin/template';
 	}
 	public function index()
 	{
-		$data['page'] = 'Dashboard';
-		$this->template->load($this->template_view, $this->content . 'dashboard', $data);
+		$data['page'] = 'Bank';
+		$data['bank'] = $this->db->get('bank')->result();
+		$this->template->load($this->template_view, $this->content . 'index', $data);
 	}
 }

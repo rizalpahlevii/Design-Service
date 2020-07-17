@@ -34,8 +34,8 @@
 										<td><?= $row->nama_kategori ?></td>
 										<td><?= $row->keterangan ?></td>
 										<td>
-											<a href="<?= site_url('paket/edit/' . $row->id_kategori) ?>" class="btn btn-warning btn-sm"><i class="fa fa-edit"></i> Edit</a>
-											<a onclick="return confirm('Yakin ingin menghapus data?')" href="<?= site_url('paket/hapus/' . $row->id_kategori) ?>" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Hapus</a>
+											<a href="<?= site_url('backoffice/paket/edit/' . $row->id_kategori) ?>" class="btn btn-warning btn-sm"><i class="fa fa-edit"></i> Edit</a>
+											<a onclick="return confirm('Yakin ingin menghapus data?')" href="<?= site_url('backoffice/paket/hapus/' . $row->id_kategori) ?>" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Hapus</a>
 
 										</td>
 									</tr>

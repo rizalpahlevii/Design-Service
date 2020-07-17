@@ -6,7 +6,7 @@
 				<h3 class="box-title"><?= $page ?></h3>
 			</div>
 			<div class="box-body">
-				<form action="<?= site_url('user/edit_password/' . $admin->id_admin) ?>" method="POST">
+				<form action="<?= site_url('backoffice/user/edit_password/' . $admin->id_admin) ?>" method="POST">
 
 					<div class="row">
 						<div class="col-md-6">

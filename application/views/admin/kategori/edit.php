@@ -8,7 +8,7 @@
 				</h3>
 			</div>
 			<div class="box-body">
-				<form action="<?= site_url('kategori/update') ?>" method="POST">
+				<form action="<?= site_url('backoffice/kategori/update') ?>" method="POST">
 					<input type="hidden" name="id_kategori" name="id_kategori" value="<?= $kategori->id_kategori ?>">
 					<div class="row">
 						<div class="col-md-6">

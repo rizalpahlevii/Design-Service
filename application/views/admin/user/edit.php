@@ -8,7 +8,7 @@
 				</h3>
 			</div>
 			<div class="box-body">
-				<form action="<?= site_url('user/edit/' . $admin->id_admin) ?>" method="POST">
+				<form action="<?= site_url('backoffice/user/edit/' . $admin->id_admin) ?>" method="POST">
 					<input type="hidden" name="id_admin" name="id_admin" value="<?= $admin->id_admin ?>">
 					<div class="row">
 						<div class="col-md-6">
