@@ -68,7 +68,7 @@
 						<li class="dropdown user user-menu">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 								<img src="<?= base_url('assets/') ?>dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
-								<span class="hidden-xs">Alexander Pierce</span>
+								<span class="hidden-xs"><?= $this->session->userdata('username') ?></span>
 							</a>
 							<ul class="dropdown-menu">
 								<!-- User image -->
@@ -76,7 +76,7 @@
 									<img src="<?= base_url('assets/') ?>dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
 
 									<p>
-										Alexander Pierce - Web Developer
+										<?= $this->session->userdata('username') ?> - Admin
 										<small>Member since Nov. 2012</small>
 									</p>
 								</li>
@@ -101,7 +101,7 @@
 										<a href="#" class="btn btn-default btn-flat">Profile</a>
 									</div>
 									<div class="pull-right">
-										<a href="<?= site_url('backoffice/logout') ?>" class="btn btn-default btn-flat">Sign out</a>
+										<a href="<?= site_url('backoffice/auth/logout') ?>" class="btn btn-default btn-flat">Sign out</a>
 									</div>
 								</li>
 							</ul>
@@ -124,7 +124,7 @@
 						<img src="<?= base_url('assets/') ?>dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
 					</div>
 					<div class="pull-left info">
-						<p>Alexander Pierce</p>
+						<p><?= $this->session->userdata('username') ?></p>
 						<a href="#"><i class="fa fa-circle text-success"></i> Online</a>
 					</div>
 				</div>
@@ -132,11 +132,11 @@
 				<!-- sidebar menu: : style can be found in sidebar.less -->
 				<ul class="sidebar-menu" data-widget="tree">
 					<li class="header">MAIN NAVIGATION</li>
-					<li><a href="<?= site_url('/dashboard') ?>"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
-					<li><a href="<?= site_url('kategori/') ?>"><i class="fa fa-sticky-note"></i> <span>Kategori</span></a></li>
-					<li><a href="<?= site_url('paket/') ?>"><i class="fa fa-archive"></i> <span>Paket</span></a></li>
-					<li><a href="<?= site_url('user/') ?>"><i class="fa fa-user"></i> <span>User</span></a></li>
-					<li><a href="<?= site_url('member/') ?>"><i class="fa fa-users"></i> <span>Member</span></a></li>
+					<li><a href="<?= site_url('backoffice/dashboard') ?>"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
+					<li><a href="<?= site_url('backoffice/kategori/') ?>"><i class="fa fa-sticky-note"></i> <span>Kategori</span></a></li>
+					<li><a href="<?= site_url('backoffice/paket/') ?>"><i class="fa fa-archive"></i> <span>Paket</span></a></li>
+					<li><a href="<?= site_url('backoffice/user/') ?>"><i class="fa fa-user"></i> <span>User</span></a></li>
+					<li><a href="<?= site_url('backoffice/member/') ?>"><i class="fa fa-users"></i> <span>Member</span></a></li>
 				</ul>
 			</section>
 			<!-- /.sidebar -->

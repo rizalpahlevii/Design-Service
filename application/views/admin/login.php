@@ -37,7 +37,7 @@
 		<div class="login-box-body">
 			<p class="login-box-msg">Sign in to start your session</p>
 			<?= $this->session->flashdata('message'); ?>
-			<form action="<?= site_url('backoffice/') ?>" method="post">
+			<form action="<?= site_url('backoffice/auth/') ?>" method="post">
 				<input type="hidden" name="_token" value="qiDkdwR0qffu7va32igbVbk7bnoxpcaw08AzYIo4">
 				<div class="form-group has-feedback ">
 					<input type="text" class="form-control" placeholder="username" name="username" id="username">

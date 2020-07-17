@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Kategori extends CI_Controller
+class Paket extends CI_Controller
 {
 	protected $content;
 	protected $template_view;
@@ -10,23 +10,35 @@ class Kategori extends CI_Controller
 	{
 		parent::__construct();
 		if ($this->session->userdata('status') != "login") {
-			redirect('backoffice');
+			redirect('backoffice/auth');
 		}
-		$this->content = 'admin/kategori/';
+		$this->content = 'admin/paket/';
 		$this->template_view = 'admin/template';
-		$this->load->model('Kategori_model', 'kategori');
+		$this->load->model('Paket_model', 'paket');
 	}
 	public function index()
 	{
-		$data['categories'] = $this->kategori->get_all();
-		$data['page'] = 'Kategori';
+		$data['paket'] = $this->paket->get_all();
+
+		$data['page'] = 'Paket';
 		$this->template->load($this->template_view, $this->content . 'index', $data);
+	}
+	public function tambah()
+	{
+		$data['kategori'] = $this->db->get('kategori')->result();
+		$data['page'] = 'Tambah Paket';
+		$this->template->load($this->template_view, $this->content . 'create', $data);
 	}
 	public function simpan()
 	{
 		$post = $this->input->post();
-		$data = ['nama_kategori' => $post['nama']];
-		$this->db->insert('kategori', $data);
+		$data = [
+			'nama_paket' => $post['nama'],
+			'harga_paket' => $post['harga'],
+			'keterangan' => $post['keterangan'],
+			'id_kategori' => $post['kategori'],
+		];
+		$this->db->insert('paket', $data);
 		if ($this->db->affected_rows() > 0) {
 			$this->session->set_flashdata('message', '<div class="alert alert-success">Data Berhasil Disimpan
 			</div>');
@@ -34,24 +46,25 @@ class Kategori extends CI_Controller
 			$this->session->set_flashdata('message', '<div class="alert alert-danger">Data Gagal Disimpan
 			</div>');
 		}
-		redirect('kategori/');
-	}
-	public function tambah()
-	{
-		$data['page'] = 'Tambah Kategori';
-		$this->template->load($this->template_view, $this->content . 'create', $data);
+		redirect('backoffice/paket/');
 	}
 	public function edit($id)
 	{
-		$data['page'] = 'Edit Kategori';
-		$data['kategori'] = $this->kategori->get_by_id($id);
+		$data['page'] = 'Edit Paket';
+		$data['paket'] = $this->paket->get_by_id($id);
+		$data['kategori'] = $this->db->get('kategori')->result();
 		$this->template->load($this->template_view, $this->content . 'edit', $data);
 	}
 	public function update()
 	{
 		$post = $this->input->post();
-		$data = ['nama_kategori' => $post['nama']];
-		$this->db->update('kategori', $data, ['id_kategori' => $post['id_kategori']]);
+		$data = [
+			'nama_paket' => $post['nama'],
+			'harga_paket' => $post['harga'],
+			'keterangan' => $post['keterangan'],
+			'id_kategori' => $post['kategori'],
+		];
+		$this->db->update('paket', $data, ['id_paket' => $post['id_paket']]);
 		if ($this->db->affected_rows() > 0) {
 			$this->session->set_flashdata('message', '<div class="alert alert-success">Data Berhasil Diedit
 			</div>');
@@ -59,12 +72,12 @@ class Kategori extends CI_Controller
 			$this->session->set_flashdata('message', '<div class="alert alert-danger">Data Gagal Diedit
 			</div>');
 		}
-		redirect('kategori/');
+		redirect('backoffice/paket/');
 	}
 	public function hapus($id)
 	{
-		$where = ['id_kategori' => $id];
-		$this->db->delete('kategori', $where);
+		$where = ['id_paket' => $id];
+		$this->db->delete('paket', $where);
 		if ($this->db->affected_rows() > 0) {
 			$this->session->set_flashdata('message', '<div class="alert alert-success">Data Berhasil Dihapus
 			</div>');
@@ -72,6 +85,6 @@ class Kategori extends CI_Controller
 			$this->session->set_flashdata('message', '<div class="alert alert-danger">Data Gagal Dihapus
 			</div>');
 		}
-		redirect('kategori/');
+		redirect('backoffice/paket/');
 	}
 }

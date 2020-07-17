@@ -10,7 +10,7 @@ class User extends CI_Controller
 	{
 		parent::__construct();
 		if ($this->session->userdata('status') != "login") {
-			redirect('backoffice');
+			redirect('backoffice/auth');
 		}
 		$this->content = 'admin/user/';
 		$this->template_view = 'admin/template';
@@ -47,7 +47,7 @@ class User extends CI_Controller
 				$this->session->set_flashdata('message', '<div class="alert alert-danger">Data Gagal Disimpan
 				</div>');
 			}
-			redirect('user/');
+			redirect('backoffice/user/');
 		}
 	}
 	public function edit($id)
@@ -70,7 +70,7 @@ class User extends CI_Controller
 				$this->session->set_flashdata('message', '<div class="alert alert-danger">Data Gagal Diedit
 			</div>');
 			}
-			redirect('user/');
+			redirect('backoffice/user/');
 		}
 	}
 	public function edit_password($id)
@@ -97,7 +97,7 @@ class User extends CI_Controller
 				$this->session->set_flashdata('message', '<div class="alert alert-danger">Data Gagal Diedit
 			</div>');
 			}
-			redirect('user/');
+			redirect('backoffice/user/');
 		}
 	}
 
@@ -112,6 +112,6 @@ class User extends CI_Controller
 			$this->session->set_flashdata('message', '<div class="alert alert-danger">Data Gagal Dihapus
 			</div>');
 		}
-		redirect('user/');
+		redirect('backoffice/user/');
 	}
 }

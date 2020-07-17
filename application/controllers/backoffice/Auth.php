@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Backoffice extends CI_Controller
+class Auth extends CI_Controller
 {
 	public function __construct()
 	{
@@ -10,7 +10,7 @@ class Backoffice extends CI_Controller
 	public function index()
 	{
 		if ($this->session->userdata('status') == "login") {
-			redirect('paket/');
+			redirect('backoffice/dashboard');
 		}
 		$this->form_validation->set_rules('username', 'Username', 'trim|required');
 		$this->form_validation->set_rules('password', 'Password', 'trim|required');
@@ -28,17 +28,17 @@ class Backoffice extends CI_Controller
 					'status' => "login"
 				);
 				$this->session->set_userdata($data_session);
-				redirect('paket/');
+				redirect('backoffice/dashboard');
 			} else {
 				$this->session->set_flashdata('message', '<div class="alert alert-danger">Login Gagal
 				</div>');
-				redirect('backoffice/');
+				redirect('backoffice/auth');
 			}
 		}
 	}
 	public function logout()
 	{
 		$this->session->sess_destroy();
-		redirect('backoffice');
+		redirect('backoffice/auth');
 	}
 }
