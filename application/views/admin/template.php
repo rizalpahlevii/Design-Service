@@ -133,8 +133,10 @@
 				<ul class="sidebar-menu" data-widget="tree">
 					<li class="header">MAIN NAVIGATION</li>
 					<li><a href="<?= site_url('/') ?>"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
-					<li><a href="<?= site_url('kategori/') ?>"><i class="fa fa-archive"></i> <span>Kategori</span></a></li>
+					<li><a href="<?= site_url('kategori/') ?>"><i class="fa fa-sticky-note"></i> <span>Kategori</span></a></li>
 					<li><a href="<?= site_url('paket/') ?>"><i class="fa fa-archive"></i> <span>Paket</span></a></li>
+					<li><a href="<?= site_url('user/') ?>"><i class="fa fa-user"></i> <span>User</span></a></li>
+					<li><a href="<?= site_url('member/') ?>"><i class="fa fa-users"></i> <span>Member</span></a></li>
 				</ul>
 			</section>
 			<!-- /.sidebar -->
