@@ -138,6 +138,7 @@
 					<li><a href="<?= site_url('backoffice/user/') ?>"><i class="fa fa-user"></i> <span>User</span></a></li>
 					<li><a href="<?= site_url('backoffice/bank/') ?>"><i class="fa fa-money"></i> <span>Bank</span></a></li>
 					<li><a href="<?= site_url('backoffice/designer/') ?>"><i class="fa fa-users"></i> <span>Designer</span></a></li>
+					<li><a href="<?= site_url('backoffice/pemesanan/') ?>"><i class="fa fa-area-chart"></i> <span>Pemesanan</span></a></li>
 				</ul>
 			</section>
 			<!-- /.sidebar -->

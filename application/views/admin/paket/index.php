@@ -9,7 +9,7 @@
 				<div class="row">
 					<div class="col-md-6"> <?php echo $this->session->flashdata('message'); ?></div>
 				</div>
-				<a href="<?= site_url('paket/tambah/') ?>" class="btn btn-primary mb-2"><i class="fa fa-plus"></i> Tambah
+				<a href="<?= site_url('backoffice/paket/tambah/') ?>" class="btn btn-primary mb-2"><i class="fa fa-plus"></i> Tambah
 					Data</a>
 				<div class="row">
 					<div class="col-md-12">
