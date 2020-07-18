@@ -25,22 +25,26 @@ class Pemesanan extends CI_Controller
 	}
 	public function add_designer()
 	{
-		$post = $this->input->post();
-		$data = ['id_designer' => $post['id_designer']];
-		$designer = $this->db->get_where('designer', ['id_designer' => $post['id_designer']])->row();
-		$pemesanan = $this->db->get_where('pemesanan', ['id_pemesanan' => $post['id_pemesanan']])->row();
+		if ($this->input->is_ajax_request()) {
+			$post = $this->input->post();
+			$data = ['id_designer' => $post['id_designer']];
+			$designer = $this->db->get_where('designer', ['id_designer' => $post['id_designer']])->row();
+			$pemesanan = $this->db->get_where('pemesanan', ['id_pemesanan' => $post['id_pemesanan']])->row();
 
-		$this->db->update(
-			'designer',
-			['jumlah_yang_dikerjakan' => $designer->jumlah_yang_dikerjakan + $pemesanan->jumlah_pemesanan],
-			['id_designer' => $post['id_designer']]
-		);
-		$this->db->update('pemesanan', $data, ['id_pemesanan' => $post['id_pemesanan']]);
-		if ($this->db->affected_rows() > 0) {
-			$response = ['status' => true, 'message' => 'Designer Berhasil Ditambahkan'];
+			$this->db->update(
+				'designer',
+				['jumlah_yang_dikerjakan' => $designer->jumlah_yang_dikerjakan + $pemesanan->jumlah_pemesanan],
+				['id_designer' => $post['id_designer']]
+			);
+			$this->db->update('pemesanan', $data, ['id_pemesanan' => $post['id_pemesanan']]);
+			if ($this->db->affected_rows() > 0) {
+				$response = ['status' => true, 'message' => 'Designer Berhasil Ditambahkan'];
+			} else {
+				$response = ['status' => true, 'message' => 'Designer Gagal Ditambahkan'];
+			}
+			echo json_encode($response);
 		} else {
-			$response = ['status' => true, 'message' => 'Designer Gagal Ditambahkan'];
+			show_404();
 		}
-		echo json_encode($response);
 	}
 }
