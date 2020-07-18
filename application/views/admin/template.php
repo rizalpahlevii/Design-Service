@@ -139,6 +139,7 @@
 					<li><a href="<?= site_url('backoffice/bank/') ?>"><i class="fa fa-money"></i> <span>Bank</span></a></li>
 					<li><a href="<?= site_url('backoffice/designer/') ?>"><i class="fa fa-users"></i> <span>Designer</span></a></li>
 					<li><a href="<?= site_url('backoffice/pemesanan/') ?>"><i class="fa fa-area-chart"></i> <span>Pemesanan</span></a></li>
+					<li><a href="<?= site_url('backoffice/pembayaran/') ?>"><i class="fa fa-area-chart"></i> <span>Pembayaran</span></a></li>
 				</ul>
 			</section>
 			<!-- /.sidebar -->
