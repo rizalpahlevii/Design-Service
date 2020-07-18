@@ -83,7 +83,7 @@ class User extends CI_Controller
 		$this->form_validation->set_rules('password_konfirmasi', 'Password Konfirmasi', 'trim|required|matches[password]');
 		if ($this->form_validation->run() == false) {
 			$data['page'] = 'Edit Admin / User Password';
-			$data['admin'] = $this->db->get_where('admin', ['id_admin', $id])->row();
+			$data['admin'] = $this->db->get_where('admin', ['id_admin' => $id])->row();
 			$this->template->load($this->template_view, $this->content . 'edit_password', $data);
 		} else {
 			$post = $this->input->post();
