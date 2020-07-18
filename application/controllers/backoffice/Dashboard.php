@@ -19,6 +19,9 @@ class Dashboard extends CI_Controller
 	public function index()
 	{
 		$data['page'] = 'Dashboard';
+		$data['kategori'] = $this->db->get('kategori')->num_rows();
+		$data['paket'] = $this->db->get('paket')->num_rows();
+		$data['user'] = $this->db->get('admin')->num_rows();
 		$this->template->load($this->template_view, $this->content . 'dashboard', $data);
 	}
 }
