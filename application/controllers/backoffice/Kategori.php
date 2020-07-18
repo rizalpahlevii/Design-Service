@@ -9,9 +9,7 @@ class Kategori extends CI_Controller
 	public function __construct()
 	{
 		parent::__construct();
-		if ($this->session->userdata('status') != "login") {
-			redirect('backoffice/auth');
-		}
+		is_logged_in_admin();
 		$this->content = 'admin/kategori/';
 		$this->template_view = 'admin/template';
 		$this->load->model('Kategori_model', 'kategori');

@@ -9,7 +9,7 @@ class Auth extends CI_Controller
 	}
 	public function index()
 	{
-		if ($this->session->userdata('status') == "login") {
+		if ($this->session->userdata('status') == "login_admin") {
 			redirect('backoffice/dashboard');
 		}
 		$this->form_validation->set_rules('username', 'Username', 'trim|required');
@@ -25,7 +25,7 @@ class Auth extends CI_Controller
 			if ($cek > 0) {
 				$data_session = array(
 					'username' =>  $this->input->post('username'),
-					'status' => "login"
+					'status' => "login_admin"
 				);
 				$this->session->set_userdata($data_session);
 				redirect('backoffice/dashboard');
