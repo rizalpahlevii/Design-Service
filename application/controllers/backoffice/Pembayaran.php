@@ -25,11 +25,7 @@ class Pembayaran extends CI_Controller
 	{
 		if ($this->input->is_ajax_request()) {
 			$post = $this->input->post();
-			if ($post['status'] == "Pembayaran Valid") {
-				$data = ['status_pembayaran' => $post['status'], 'tanggal_konfirmasi' => date('Y-m-d')];
-			} else {
-				$data = ['status_pembayaran' => $post['status']];
-			}
+			$data = ['status_pembayaran' => $post['status'], 'tanggal_konfirmasi' => date('Y-m-d')];
 			$this->db->update('pembayaran', $data, ['id_pembayaran' => $post['id_pembayaran']]);
 			if ($this->db->affected_rows() > 0) {
 				$response = ['status' => true, 'message' => 'Status Berhasil Diubah'];

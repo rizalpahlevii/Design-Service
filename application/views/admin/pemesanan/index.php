@@ -40,7 +40,7 @@
 											<td><?= $row->nama_kategori ?></td>
 											<td><?= $row->jumlah_pemesanan ?></td>
 											<td><?= $row->total_bayar ?></td>
-											<td><?= $row->status_pemesanan ?></td>
+											<td><span data-status="<?= $row->status_pemesanan ?>" data-id="<?= $row->id_pemesanan ?>" class="label bg-green change-status" style="cursor: pointer;"><?= $row->status_pemesanan ?></span></td>
 											<td>
 												<?php if ($row->nama_designer == "") : ?>
 													<span data-id="<?= $row->id_pemesanan ?>" style="cursor: pointer;" class="label bg-red pilih-designer">Designer Belum Dipilih</span>
@@ -97,6 +97,38 @@
 </div>
 <!-- /.modal -->
 
+<div class="modal fade" id="modal-default-2">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">Ganti Status</h4>
+			</div>
+			<div class="modal-body">
+				<div class="row">
+					<div class="col-md-12">
+						<input type="hidden" name="id_pemesanan_2" id="id_pemesanan_2">
+						<div class="form-group">
+							<label for="status">Status</label>
+							<select name="status" id="status" class="form-control">
+								<option disabled selected>Pilih Status</option>
+							</select>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+				<button type="button" class="btn btn-primary" id="btn-save-2">Save changes</button>
+			</div>
+		</div>
+		<!-- /.modal-content -->
+	</div>
+	<!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+
 
 <script type="text/javascript">
 	$(function() {
@@ -106,6 +138,44 @@
 		$(document).on('click', '.pilih-designer', function() {
 			$("#id_pemesanan").val($(this).data('id'));
 			$('#modal-default').modal('show');
+		});
+		$(document).on('click', '.change-status', function() {
+			$("#id_pemesanan").val($(this).data('id'));
+			status = $(this).data('status');
+			element = '';
+			if (status == 'Belum Bayar') {
+				element += '<option selected value="Belum Bayar">Belum Bayar</option>';
+			} else {
+				element += '<option value="Belum Bayar">Belum Bayar</option>';
+			}
+			if (status == 'On Proggress') {
+				element += '<option selected value="On Proggress">On Proggress</option>';
+			} else {
+				element += '<option value="On Proggress">On Proggress</option>';
+			}
+			if (status == 'Selesai') {
+				element += '<option selected value="Selesai">Selesai</option>';
+			} else {
+				element += '<option value="Selesai">Selesai</option>';
+			}
+
+			$('#status').html(element);
+			$('#modal-default-2').modal('show');
+		});
+		$('#btn-save-2').click(function() {
+			$.ajax({
+				url: "<?= site_url('backoffice/pemesanan/change_status') ?>",
+				method: "POST",
+				dataType: "json",
+				data: {
+					id_pemesanan: $("#id_pemesanan").val(),
+					status: $("#status").val(),
+				},
+				success: function(response) {
+					alert(response.message);
+					location.reload();
+				}
+			})
 		});
 		$('#btn-save').click(function() {
 			$.ajax({

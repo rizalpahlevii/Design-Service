@@ -45,4 +45,20 @@ class Pemesanan extends CI_Controller
 			show_404();
 		}
 	}
+	public function change_status()
+	{
+		if ($this->input->is_ajax_request()) {
+			$post = $this->input->post();
+			$data = ['status_pemesanan' => $post['status']];
+			$this->db->update('pemesanan', $data, ['id_pemesanan' => $post['id_pemesanan']]);
+			if ($this->db->affected_rows() > 0) {
+				$response = ['status' => true, 'message' => 'Status Berhasil Diubah'];
+			} else {
+				$response = ['status' => true, 'message' => 'Status Gagal Diubah'];
+			}
+			echo json_encode($response);
+		} else {
+			show_404();
+		}
+	}
 }
