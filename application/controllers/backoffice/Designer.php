@@ -30,7 +30,7 @@ class Designer extends CI_Controller
 	public function simpan()
 	{
 		$post = $this->input->post();
-		$data = ['nama_designer' => $post['nama']];
+		$data = ['nama_designer' => $post['nama'], 'jumlah_yang_dikerjakan' => 0];
 		$this->db->insert('designer', $data);
 		if ($this->db->affected_rows() > 0) {
 			$this->session->set_flashdata('message', '<div class="alert alert-success">Data Berhasil Disimpan
