@@ -38,7 +38,7 @@
 						</div>
 					</div>
 					<div class="row">
-						<div class="col-md-6">
+						<div class="col-md-12">
 							<div class="form-group">
 								<label for="keterangan">Keterangan Paket</label>
 								<textarea name="keterangan" id="keterangan" cols="30" rows="5" class="form-control" required><?= $paket->keterangan ?></textarea>
@@ -51,3 +51,8 @@
 		</div>
 	</div>
 </div>
+<script type="text/javascript">
+	$(function() {
+		CKEDITOR.replace('keterangan');
+	});
+</script>

@@ -42,7 +42,7 @@
 						<br>
 						<br>
 						<h1>Buat Logo Untuk Usahamu Sekarang Juga</h1>
-						<p><a href="index.html">Service Kami</a>Logo Design</p>
+						<p><a href="index.html">Service Kami</a><?= $kategori->nama_kategori ?></p>
 					</div>
 				</div>
 			</div>
@@ -54,76 +54,24 @@
 	<div class="me-investment-single me-padder-top">
 		<div class="container">
 			<div class="row">
-				<div class="col-lg-4 col-md-6">
-					<div class="me-plans-box">
-						<div class="me-plan-header">
-							<h1 class="me-plan-title">Lite</h1>
-							<div class="me-plan-price">Rp. 300.000</div>
-						</div>
-						<div class="me-plan-body">
-							<h4>Cocok Untuk UMKM</h4>
-							<ul>
-								<li>1 Pilihan Logo</li>
-								<li>2x Revisi</li>
-								<li>Max 2 Hari Pengerjaan</li>
-								<li>Free Konsultasi</li>
-							</ul>
-						</div>
-						<div class="me-plan-footer">
-							<button class="me-btn" data-toggle="modal" data-target="#meLogin">Order Lite</button>
-						</div>
-						<div class="me-plan-shape">
+				<?php foreach ($paket as $row) : ?>
+					<div class="col-lg-4 col-md-6">
+						<div class="me-plans-box">
+							<div class="me-plan-header">
+								<h1 class="me-plan-title"><?= $row->nama_paket ?></h1>
+								<div class="me-plan-price"><?= 'Rp. ' . number_format($row->harga_paket) ?></div>
+							</div>
+							<div class="me-plan-body">
+								<?= $row->keterangan ?>
+							</div>
+							<div class="me-plan-footer">
+								<a href="<?= site_url('order/' . $row->id_paket) ?>" class="me-btn">Order <?= $row->nama_paket ?></a>
+							</div>
+							<div class="me-plan-shape">
+							</div>
 						</div>
 					</div>
-				</div>
-				<div class="col-lg-4 col-md-6">
-					<div class="me-plans-box">
-						<div class="me-plan-header">
-							<h1 class="me-plan-title">Medium</h1>
-							<div class="me-plan-price">Rp. 600.000</div>
-						</div>
-						<div class="me-plan-body">
-							<h4>Cocok Untuk UD/CV</h4>
-							<ul>
-								<li>2 Pilihan Logo</li>
-								<li>3x Revisi</li>
-								<li>Max 3 Hari Pengerjaan</li>
-								<li>Free Desain Kartu Nama</li>
-								<li>Free Konsultasi</li>
-							</ul>
-						</div>
-						<div class="me-plan-footer">
-							<button class="me-btn" data-toggle="modal" data-target="#meLogin">Order Medium</button>
-						</div>
-						<div class="me-plan-shape">
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6">
-					<div class="me-plans-box">
-						<div class="me-plan-header">
-							<h1 class="me-plan-title">Biz</h1>
-							<div class="me-plan-price">Rp. 800.000</div>
-						</div>
-						<div class="me-plan-body">
-							<h4>Cocok Untuk PT</h4>
-							<ul>
-								<li>3 Pilihan Logo</li>
-								<li>3x Revisi</li>
-								<li>Max 3 Hari Pengerjaan</li>
-								<li>Free Desain Kartu Nama</li>
-								<li>Free Desain Kop Surat</li>
-								<li>Free Desain Brosur</li>
-								<li>Free Konsultasi</li>
-							</ul>
-						</div>
-						<div class="me-plan-footer">
-							<button class="me-btn" data-toggle="modal" data-target="#meLogin">Order Biz</button>
-						</div>
-						<div class="me-plan-shape">
-						</div>
-					</div>
-				</div>
+				<?php endforeach; ?>
 			</div>
 		</div>
 	</div>

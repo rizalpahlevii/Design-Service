@@ -39,9 +39,9 @@
 						<li class="me-menu-children"><a href="<?= site_url('home') ?>" class="me-active-menu">Beranda</a></li>
 						<li class="me-menu-children"><a href="javascript:;">Service Kami</a>
 							<ul class="me-sub-menu">
-								<li><a href="<?= site_url('service/logo_design') ?>">Logo Design</a></li>
-								<li><a href="<?= site_url('service/social_media') ?>">Social Media Management</a></li>
-								<li><a href="<?= site_url('service/digital_marketing') ?>">Digital Marketing</a></li>
+								<?php foreach ($this->db->get('kategori')->result() as $row) : ?>
+									<li><a href="<?= site_url('service/view/' . $row->id_kategori) ?>"><?= $row->nama_kategori ?></a></li>
+								<?php endforeach; ?>
 							</ul>
 						</li>
 						<li><a href="<?= site_url('about') ?>">Tentang Kami</a></li>

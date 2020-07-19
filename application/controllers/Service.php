@@ -11,17 +11,14 @@ class Service extends CI_Controller
 		parent::__construct();
 		$this->content = 'frontend/bank/';
 		$this->template_view = 'frontend/template';
+		$this->load->model('Paket_model', 'paket');
 	}
-	public function logo_design()
+	public function view($id_kategori)
 	{
-		$this->load->view('frontend/service_logo_design');
-	}
-	public function social_media()
-	{
-		$this->load->view('frontend/service_social_media');
-	}
-	public function digital_marketing()
-	{
-		$this->load->view('frontend/service_digital_marketing');
+		$data['kategori'] = $this->db->get_where('kategori', ['id_kategori' => $id_kategori])->row();
+		$data['paket'] = $this->db->select('paket.*, kategori.nama_kategori')
+			->from('paket')
+			->join('kategori', 'kategori.id_kategori = paket.id_kategori')->where('paket.id_kategori', $id_kategori)->get()->result();
+		$this->load->view('frontend/service_logo_design', $data);
 	}
 }
