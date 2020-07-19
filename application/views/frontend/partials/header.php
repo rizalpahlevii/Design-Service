@@ -52,7 +52,7 @@
 							<li class="me-menu-children"><a href="javascript:;">My Account</a>
 								<ul class="me-sub-menu">
 									<li><a href="<?= site_url('account/profile/') ?>">Profile</a></li>
-									<li><a href="<?= site_url('account/cart/') ?>">Keranjang</a></li>
+									<li><a href="<?= site_url('order/checkout/') ?>">Keranjang</a></li>
 									<li><a href="<?= site_url('account/invoice/') ?>">Invoice</a></li>
 									<li><a href="<?= site_url('account/pemesanan/') ?>">Pemesanan</a></li>
 									<li><a href="<?= site_url('auth/logout/') ?>">Logout</a></li>

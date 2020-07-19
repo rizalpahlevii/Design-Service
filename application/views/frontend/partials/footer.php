@@ -40,10 +40,12 @@
 				<h1 class="me-login-title">Sign Up</h1>
 				<form method="POST" action="<?= site_url('auth/register') ?>">
 					<div class="me-login-form">
-						<input type="text" placeholder="Username" />
-						<input type="text" placeholder="Email" />
-						<input type="password" placeholder="Password" />
-						<input type="password" placeholder="Confirm Password" />
+						<input type="text" placeholder="Nama" name="nama" />
+						<input type="text" placeholder="Username" name="username" />
+						<input type="text" placeholder="Email" name="email" />
+						<input type="text" placeholder="HP" name="hp" />
+						<input type="password" placeholder="Password" name="password" />
+						<input type="password" placeholder="Confirm Password" name="password_konfirmasi" />
 
 						<div class="me-login-btn">
 							<button class="me-btn" type="submit">Sign up</button>
