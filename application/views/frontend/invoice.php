@@ -62,6 +62,7 @@
 								<th>Tanggal Konfirmasi</th>
 								<th>Status Pembayaran</th>
 								<th>BANK</th>
+								<th>Aksi</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -79,7 +80,10 @@
 									<td><?= $row->tanggal_konfirmasi == NULL ? '<span  class="label bg-red">' . $row->status_pembayaran . '</span>' : $row->tanggal_konfirmasi ?></td>
 									<td><span data-status="<?= $row->status_pembayaran ?>" data-id="<?= $row->id_pembayaran ?>" style="cursor: pointer;" class="label bg-blue change-status"><?= $row->status_pembayaran ?></span></td>
 									<td><?= $row->nama_bank ?></td>
+									<td>
+										<a href="<?= site_url('account/view_invoice/' . $row->id_pembayaran) ?>" class="btn btn-primary btn-sm">Lihat</a>
 
+									</td>
 								</tr>
 							<?php $no++;
 							endforeach; ?>
