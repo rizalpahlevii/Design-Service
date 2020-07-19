@@ -1,3 +1,62 @@
+<div class="modal fade me-login-model" id="meLogin">
+	<div class="modal-dialog modal-dialog-centered">
+		<div class="modal-content">
+			<button type="button" class="close me-team-close" data-dismiss="modal" aria-label="Close">
+				<span aria-hidden="true">×</span>
+			</button>
+			<div class="modal-body">
+				<h1 class="me-login-title">Login</h1>
+				<form method="POST" action="<?= site_url('auth/login') ?>">
+					<div class="me-login-form">
+						<input type="text" placeholder="Username" name="username" />
+						<input type="password" placeholder="Password" name="password" />
+						<div class="me-remember">
+							<label>Remember Me
+								<input type="checkbox">
+								<span class="s_checkbox"></span>
+							</label>
+							<a href="javascript:;" class="me-forgot-password" data-toggle="modal" data-target="#meforgot" data-dismiss="modal" aria-label="Close">Forgot Password ?</a>
+						</div>
+						<div class="me-login-btn">
+							<button class="me-btn" type="submit">Login</button>
+							<p>Don't have an account? <a href="javascript:;" data-toggle="modal" data-target="#meSignup" data-dismiss="modal" aria-label="Close">Sign up</a></p>
+						</div>
+					</div>
+				</form>
+				<div class="me-login-with-social">
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- Signup Modal -->
+<div class="modal fade me-login-model" id="meSignup">
+	<div class="modal-dialog modal-dialog-centered">
+		<div class="modal-content">
+			<button type="button" class="close me-team-close" data-dismiss="modal" aria-label="Close">
+				<span aria-hidden="true">×</span>
+			</button>
+			<div class="modal-body">
+				<h1 class="me-login-title">Sign Up</h1>
+				<form method="POST" action="<?= site_url('auth/register') ?>">
+					<div class="me-login-form">
+						<input type="text" placeholder="Username" />
+						<input type="text" placeholder="Email" />
+						<input type="password" placeholder="Password" />
+						<input type="password" placeholder="Confirm Password" />
+
+						<div class="me-login-btn">
+							<button class="me-btn" type="submit">Sign up</button>
+							<p>Already have an account? <a href="javascript:;" data-toggle="modal" data-target="#meLogin" data-dismiss="modal" aria-label="Close">Login</a></p>
+						</div>
+					</div>
+				</form>
+				<div class="me-login-with-social">
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
 <div class="me-footer">
 	<div class="container">
 		<div class="row">

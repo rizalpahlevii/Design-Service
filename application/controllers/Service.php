@@ -19,6 +19,6 @@ class Service extends CI_Controller
 		$data['paket'] = $this->db->select('paket.*, kategori.nama_kategori')
 			->from('paket')
 			->join('kategori', 'kategori.id_kategori = paket.id_kategori')->where('paket.id_kategori', $id_kategori)->get()->result();
-		$this->load->view('frontend/service_logo_design', $data);
+		$this->load->view('frontend/service', $data);
 	}
 }

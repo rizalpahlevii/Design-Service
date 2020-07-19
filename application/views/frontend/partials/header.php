@@ -16,9 +16,11 @@
 					<li>
 						<i class="fas fa-mobile-alt"></i> +6282300120168
 					</li>
-					<li>
-						<a href="javascript:;" data-toggle="modal" data-target="#meLogin">Login</a>
-					</li>
+					<?php if (!$this->session->userdata('is_member')) : ?>
+						<li>
+							<a href="javascript:;" data-toggle="modal" data-target="#meLogin">Login</a>
+						</li>
+					<?php endif; ?>
 				</ul>
 			</div>
 		</div>
@@ -46,6 +48,17 @@
 						</li>
 						<li><a href="<?= site_url('about') ?>">Tentang Kami</a></li>
 						<li><a href="<?= site_url('contact') ?>">Kontak</a></li>
+						<?php if ($this->session->userdata('is_member')) : ?>
+							<li class="me-menu-children"><a href="javascript:;">My Account</a>
+								<ul class="me-sub-menu">
+									<li><a href="<?= site_url('account/profile/') ?>">Profile</a></li>
+									<li><a href="<?= site_url('account/cart/') ?>">Keranjang</a></li>
+									<li><a href="<?= site_url('account/invoice/') ?>">Invoice</a></li>
+									<li><a href="<?= site_url('account/pemesanan/') ?>">Pemesanan</a></li>
+									<li><a href="<?= site_url('auth/logout/') ?>">Logout</a></li>
+								</ul>
+							</li>
+						<?php endif; ?>
 					</ul>
 					<div class="me-toggle-nav">
 						<span></span>
@@ -57,3 +70,4 @@
 		</div>
 	</div>
 </div>
+<?= $this->session->flashdata('message') ?>

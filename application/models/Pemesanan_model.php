@@ -12,4 +12,20 @@ class Pemesanan_model extends CI_Model
 			->join('bank', 'bank.id_bank=pembayaran.id_bank')->get('pemesanan');
 		return $query->result();
 	}
+	public function kode_pemesanan()
+	{
+		$this->db->select('Right(pemesanan.kode_pemesanan,5) as kode ', false);
+		$this->db->order_by('kode_pemesanan', 'desc');
+		$this->db->limit(1);
+		$query = $this->db->get('pemesanan');
+		if ($query->num_rows() <> 0) {
+			$data = $query->row();
+			$kode = intval($data->kode) + 1;
+		} else {
+			$kode = 1;
+		}
+		$kodemax = str_pad($kode, 5, "0", STR_PAD_LEFT);
+		$kodejadi  = "ORD" . $kodemax;
+		return $kodejadi;
+	}
 }
