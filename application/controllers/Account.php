@@ -9,15 +9,45 @@ class Account extends CI_Controller
 	public function __construct()
 	{
 		parent::__construct();
+		if ($this->session->userdata('is_member') != true) {
+			redirect('home');
+		}
 		$this->content = 'frontend/bank/';
 		$this->template_view = 'frontend/template';
 		$this->load->model('Pemesanan_model', 'pemesanan');
 		$this->load->model('Pembayaran_model', 'pembayaran');
 	}
+	public function update()
+	{
+		$post = $this->input->post();
+		$data = [
+			'nama' => $post['nama'],
+			'email' => $post['email'],
+			'username' => $post['username'],
+			'no_hp' => $post['no_hp'],
+		];
+		if ($post['password'] != "") {
+			$data['password'] = md5($post['password']);
+		}
+		$this->db->update('member', $data, ['id_member' => $this->session->userdata('id_member')]);
+		if ($this->db->affected_rows() > 0) {
+			$this->session->set_flashdata('message', '<div class="alert alert-success">Data Berhasil Diupdate
+			</div>');
+		} else {
+			$this->session->set_flashdata('message', '<div class="alert alert-danger">Data Gagal Diupdate
+			</div>');
+		}
+		redirect('account/profile/');
+	}
 	public function pemesanan()
 	{
 		$data['pemesanan'] = $this->pemesanan->get_all_data_by_member($this->session->userdata('id_member'));
 		$this->load->view('frontend/pemesanan', $data);
+	}
+	public function profile()
+	{
+		$data['member'] = $this->db->get_where('member', ['id_member' => $this->session->userdata('id_member')])->row();
+		$this->load->view('frontend/profile', $data);
 	}
 	public function invoice()
 	{
