@@ -34,8 +34,8 @@
 										<td><?= $row->email ?></td>
 										<td><?= $row->no_hp ?></td>
 										<td>
-											<a href="<?= site_url('backoffice/kategori/edit/' . $row->id_member) ?>" class="btn btn-warning btn-sm"><i class="fa fa-edit"></i> Edit</a>
-											<a onclick="return confirm('Yakin ingin menghapus data?')" href="<?= site_url('backoffice/kategori/hapus/' . $row->id_member) ?>" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Hapus</a>
+											<a href="<?= site_url('backoffice/member/edit/' . $row->id_member) ?>" class="btn btn-warning btn-sm"><i class="fa fa-edit"></i> Edit</a>
+											<a onclick="return confirm('Yakin ingin menghapus data?')" href="<?= site_url('backoffice/member/hapus/' . $row->id_member) ?>" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Hapus</a>
 
 										</td>
 									</tr>

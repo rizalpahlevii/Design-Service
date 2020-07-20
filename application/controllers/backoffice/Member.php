@@ -30,10 +30,11 @@ class Member extends CI_Controller
 	{
 		$post = $this->input->post();
 		$data = [
-			'nama_member' => $post['nama'],
-			'harga_member' => $post['harga'],
-			'keterangan' => $post['keterangan'],
-			'id_kategori' => $post['kategori'],
+			'nama' => $post['nama'],
+			'email' => $post['email'],
+			'username' => $post['username'],
+			'no_hp' => $post['no_hp'],
+			'password' => md5($post['password']),
 		];
 		$this->db->insert('member', $data);
 		if ($this->db->affected_rows() > 0) {
@@ -48,25 +49,27 @@ class Member extends CI_Controller
 	public function edit($id)
 	{
 		$data['page'] = 'Edit member';
-		$data['member'] = $this->member->get_by_id($id);
-		$data['kategori'] = $this->db->get('kategori')->result();
+		$data['member'] = $this->db->get_where('member', ['id_member' => $id])->row();
 		$this->template->load($this->template_view, $this->content . 'edit', $data);
 	}
 	public function update()
 	{
 		$post = $this->input->post();
 		$data = [
-			'nama_member' => $post['nama'],
-			'harga_member' => $post['harga'],
-			'keterangan' => $post['keterangan'],
-			'id_kategori' => $post['kategori'],
+			'nama' => $post['nama'],
+			'email' => $post['email'],
+			'username' => $post['username'],
+			'no_hp' => $post['no_hp'],
 		];
+		if ($post['password'] != "") {
+			$data['password'] = md5($post['password']);
+		}
 		$this->db->update('member', $data, ['id_member' => $post['id_member']]);
 		if ($this->db->affected_rows() > 0) {
-			$this->session->set_flashdata('message', '<div class="alert alert-success">Data Berhasil Diedit
+			$this->session->set_flashdata('message', '<div class="alert alert-success">Data Berhasil Diupdate
 			</div>');
 		} else {
-			$this->session->set_flashdata('message', '<div class="alert alert-danger">Data Gagal Diedit
+			$this->session->set_flashdata('message', '<div class="alert alert-danger">Data Gagal Diupdate
 			</div>');
 		}
 		redirect('backoffice/member/');
