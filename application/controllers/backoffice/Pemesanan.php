@@ -54,7 +54,23 @@ class Pemesanan extends CI_Controller
 			if ($this->db->affected_rows() > 0) {
 				$response = ['status' => true, 'message' => 'Status Berhasil Diubah'];
 			} else {
-				$response = ['status' => true, 'message' => 'Status Gagal Diubah'];
+				$response = ['status' => false, 'message' => 'Status Gagal Diubah'];
+			}
+			echo json_encode($response);
+		} else {
+			show_404();
+		}
+	}
+	public function input_resi()
+	{
+		if ($this->input->is_ajax_request()) {
+			$post = $this->input->post();
+			$data = ['no_resi' => $post['resi']];
+			$this->db->update('pemesanan', $data, ['id_pemesanan' => $post['id_pemesanan']]);
+			if ($this->db->affected_rows() > 0) {
+				$response = ['status' => true, 'message' => 'Resi Berhasil Diinput'];
+			} else {
+				$response = ['status' => false, 'message' => 'Resi Gagal Diinput'];
 			}
 			echo json_encode($response);
 		} else {

@@ -60,6 +60,7 @@
 								<th>Jumlah Pemesanan</th>
 								<th>Total Bayar</th>
 								<th>No Resi</th>
+								<th>Catatan</th>
 								<th>Status</th>
 								<th>Designer</th>
 							</tr>
@@ -77,6 +78,7 @@
 									<td><?= $row->jumlah_pemesanan ?></td>
 									<td><?= $row->total_bayar ?></td>
 									<td><?= $row->no_resi ?></td>
+									<td><?= $row->catatan ?></td>
 									<td><span data-status="<?= $row->status_pemesanan ?>" data-id="<?= $row->id_pemesanan ?>" class="label bg-green change-status" style="cursor: pointer;"><?= $row->status_pemesanan ?></span></td>
 									<td>
 										<?php if ($row->nama_designer == "") : ?>

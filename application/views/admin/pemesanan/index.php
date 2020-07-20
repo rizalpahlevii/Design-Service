@@ -25,6 +25,8 @@
 										<th>Jumlah Pemesanan</th>
 										<th>Total Bayar</th>
 										<th>Status</th>
+										<th>Catatan</th>
+										<th>No Resi</th>
 										<th>Designer</th>
 									</tr>
 								</thead>
@@ -41,6 +43,8 @@
 											<td><?= $row->jumlah_pemesanan ?></td>
 											<td><?= $row->total_bayar ?></td>
 											<td><span data-status="<?= $row->status_pemesanan ?>" data-id="<?= $row->id_pemesanan ?>" class="label bg-green change-status" style="cursor: pointer;"><?= $row->status_pemesanan ?></span></td>
+											<td><?= $row->catatan ?></td>
+											<td><?= $row->no_resi == "" ? '<button class="btn btn-primary btn-sm input-resi" data-id="' . $row->id_pemesanan . '">Input Resi</button>' : $row->no_resi ?></td>
 											<td>
 												<?php if ($row->nama_designer == "") : ?>
 													<span data-id="<?= $row->id_pemesanan ?>" style="cursor: pointer;" class="label bg-red pilih-designer">Designer Belum Dipilih</span>
@@ -127,6 +131,34 @@
 	</div>
 	<!-- /.modal-dialog -->
 </div>
+<div class="modal fade" id="modal-resi">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">Input Resi</h4>
+			</div>
+			<div class="modal-body">
+				<div class="row">
+					<div class="col-md-12">
+						<input type="hidden" name="id_pemesanan_3" id="id_pemesanan_3">
+						<div class="form-group">
+							<label for="no_res">No Resi</label>
+							<input type="text" class="form-control" name="no_resi" id="no_resi">
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+				<button type="button" class="btn btn-primary" id="btn-save-3">Save changes</button>
+			</div>
+		</div>
+		<!-- /.modal-content -->
+	</div>
+	<!-- /.modal-dialog -->
+</div>
 <!-- /.modal -->
 
 
@@ -138,6 +170,26 @@
 		$(document).on('click', '.pilih-designer', function() {
 			$("#id_pemesanan").val($(this).data('id'));
 			$('#modal-default').modal('show');
+		});
+		$(document).on('click', '.input-resi', function() {
+			id_pemesanan = $(this).data('id');
+			$("#id_pemesanan_3").val($(this).data('id'));
+			$('#modal-resi').modal('show');
+		});
+		$('#btn-save-3').click(function() {
+			$.ajax({
+				url: "<?= site_url('backoffice/pemesanan/input_resi') ?>",
+				method: "POST",
+				dataType: "json",
+				data: {
+					id_pemesanan: $("#id_pemesanan_3").val(),
+					resi: $("#no_resi").val(),
+				},
+				success: function(response) {
+					alert(response.message);
+					location.reload();
+				}
+			})
 		});
 		$(document).on('click', '.change-status', function() {
 			$("#id_pemesanan").val($(this).data('id'));
