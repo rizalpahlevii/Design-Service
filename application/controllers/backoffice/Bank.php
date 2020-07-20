@@ -12,6 +12,8 @@ class Bank extends CI_Controller
 		if ($this->session->userdata('status') != "login") {
 			redirect('backoffice/auth');
 		}
+
+		date_default_timezone_set('Asia/Jakarta');
 		$this->content = 'admin/bank/';
 		$this->template_view = 'admin/template';
 	}

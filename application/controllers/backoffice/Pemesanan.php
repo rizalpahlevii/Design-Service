@@ -10,6 +10,8 @@ class Pemesanan extends CI_Controller
 	{
 		parent::__construct();
 		is_logged_in_admin();
+		date_default_timezone_set('Asia/Jakarta');
+
 		$this->load->model('Pemesanan_model', 'pemesanan');
 		$this->content = 'admin/pemesanan/';
 		$this->template_view = 'admin/template';

@@ -65,7 +65,7 @@
 		<!-- small box -->
 		<div class="small-box bg-aqua">
 			<div class="inner">
-				<h3><?= $pendapatan_hari_ini->ttl ?></h3>
+				<h3><?= $pendapatan_hari_ini->ttl ? $pendapatan_hari_ini->ttl : '0'  ?></h3>
 
 				<p>Pendapatan Hari Ini</p>
 			</div>
@@ -79,7 +79,7 @@
 		<!-- small box -->
 		<div class="small-box bg-yellow">
 			<div class="inner">
-				<h3><?= $jumlah_pesanan->jml ?></h3>
+				<h3><?= $jumlah_pesanan->jml ? $jumlah_pesanan->jml : '0' ?></h3>
 
 				<p>Jumlah Pesanan Hari Ini</p>
 			</div>

@@ -10,6 +10,7 @@ class Designer extends CI_Controller
 	{
 		parent::__construct();
 		is_logged_in_admin();
+		date_default_timezone_set('Asia/Jakarta');
 
 		$this->content = 'admin/designer/';
 		$this->template_view = 'admin/template';

@@ -9,6 +9,8 @@ class Service extends CI_Controller
 	public function __construct()
 	{
 		parent::__construct();
+		date_default_timezone_set('Asia/Jakarta');
+
 		$this->content = 'frontend/bank/';
 		$this->template_view = 'frontend/template';
 		$this->load->model('Paket_model', 'paket');

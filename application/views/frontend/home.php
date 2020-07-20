@@ -56,36 +56,18 @@
 					<h1>Layanan Redbox</h1>
 				</div>
 				<div class="row">
-					<div class="col-md-4 col-sm-6">
-						<div class="me-service-three-box">
-							<img src="<?= base_url('frontend') ?>/images/Logo.png" alt="image" class="img-fluid">
-							<h4>Logo Design</h4>
-							<p>Kami Membantu untuk Brand, Startup, Umkm, dalam membangun sebuah Brand Identy salah satunya Logo</p>
-							<a href="logo-design.php" class="me-service-more">
-								<span>Pesan Sekarang</span>
-							</a>
+					<?php foreach ($kategori as $row) : ?>
+						<div class="col-md-4 col-sm-6">
+							<div class="me-service-three-box">
+								<img src="<?= base_url('frontend') ?>/images/Logo.png" alt="image" class="img-fluid">
+								<h4><?= $row->nama_kategori ?></h4>
+								<!-- <p>Kami Membantu untuk Brand, Startup, Umkm, dalam membangun sebuah Brand Identy salah satunya Logo</p> -->
+								<a href="<?= site_url('service/view/' . $row->id_kategori) ?>" class="me-service-more">
+									<span>Pesan Sekarang</span>
+								</a>
+							</div>
 						</div>
-					</div>
-					<div class="col-md-4 col-sm-6">
-						<div class="me-service-three-box">
-							<img src="<?= base_url('frontend') ?>/images/Sosial.png" alt="image" class="img-fluid">
-							<h4>Social Media Managament</h4>
-							<p>Pengelolaan Sosial penting juga dalam mengembang sebuah brand, karena itu menjadi wadah iklan sebuah instansi</p>
-							<a href="social-media-management.php" class="me-service-more">
-								<span>Pesan Sekarang</span>
-							</a>
-						</div>
-					</div>
-					<div class="col-md-4 col-sm-6">
-						<div class="me-service-three-box">
-							<img src="<?= base_url('frontend') ?>/images/Digital.png" alt="image" class="img-fluid">
-							<h4>Digital Marketing</h4>
-							<p>Saat ini banyak orang sudah mengakses internet maka itu Digital Marketing Penting dalam mengiklan product saat ini</p>
-							<a href="digital-marketing" class="me-service-more">
-								<span>Pesan Sekarang</span>
-							</a>
-						</div>
-					</div>
+					<?php endforeach; ?>
 				</div>
 			</div>
 		</div>

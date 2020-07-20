@@ -10,11 +10,14 @@ class Home extends CI_Controller
 	{
 		parent::__construct();
 		$this->content = 'frontend/bank/';
+		date_default_timezone_set('Asia/Jakarta');
+
 		$this->template_view = 'frontend/template';
 	}
 	public function index()
 	{
-		$this->load->view('frontend/home');
+		$data['kategori'] = $this->db->get('kategori')->result();
+		$this->load->view('frontend/home', $data);
 		// $this->template->load($this->template_view, $this->content . 'index', $data);
 	}
 }

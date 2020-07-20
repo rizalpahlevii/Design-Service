@@ -11,6 +11,8 @@ class User extends CI_Controller
 		parent::__construct();
 		is_logged_in_admin();
 		$this->content = 'admin/user/';
+		date_default_timezone_set('Asia/Jakarta');
+
 		$this->template_view = 'admin/template';
 	}
 	public function index()

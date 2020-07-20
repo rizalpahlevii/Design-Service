@@ -12,12 +12,14 @@ class Dashboard extends CI_Controller
 		is_logged_in_admin();
 		$this->content = 'admin/';
 		$this->template_view = 'admin/template';
+		date_default_timezone_set('Asia/Jakarta');
 	}
 	public function index()
 	{
 		$data['pesanan_hari_ini'] = $this->db->select('*')->where('tanggal_pemesanan', date('Y-m-d'))->from('pemesanan')->get()->num_rows();
 		$data['pendapatan_hari_ini'] = $this->db->select('SUM(total_bayar) as ttl')->where('tanggal_pemesanan', date('Y-m-d'))->from('pemesanan')->get()->row();
 		$data['jumlah_pesanan'] = $this->db->select('SUM(jumlah_pemesanan) as jml')->where('tanggal_pemesanan', date('Y-m-d'))->from('pemesanan')->get()->row();
+
 		$data['page'] = 'Dashboard';
 		$data['kategori'] = $this->db->get('kategori')->num_rows();
 		$data['paket'] = $this->db->get('paket')->num_rows();

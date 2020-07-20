@@ -9,6 +9,8 @@ class Laporan extends CI_Controller
 	public function __construct()
 	{
 		parent::__construct();
+		date_default_timezone_set('Asia/Jakarta');
+
 		is_logged_in_admin();
 		// $this->load->model('Laporan_model', 'laporan');
 		$this->load->model('Pemesanan_model', 'pemesanan');

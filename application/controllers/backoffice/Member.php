@@ -10,6 +10,8 @@ class Member extends CI_Controller
 	{
 		parent::__construct();
 		is_logged_in_admin();
+		date_default_timezone_set('Asia/Jakarta');
+
 		$this->content = 'admin/member/';
 		$this->template_view = 'admin/template';
 	}

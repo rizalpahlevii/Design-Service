@@ -10,6 +10,8 @@ class Paket extends CI_Controller
 	{
 		parent::__construct();
 		is_logged_in_admin();
+		date_default_timezone_set('Asia/Jakarta');
+
 		$this->content = 'admin/paket/';
 		$this->template_view = 'admin/template';
 		$this->load->model('Paket_model', 'paket');

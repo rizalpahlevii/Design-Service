@@ -12,6 +12,8 @@ class Account extends CI_Controller
 		if ($this->session->userdata('is_member') != true) {
 			redirect('home');
 		}
+		date_default_timezone_set('Asia/Jakarta');
+
 		$this->content = 'frontend/bank/';
 		$this->template_view = 'frontend/template';
 		$this->load->model('Pemesanan_model', 'pemesanan');
