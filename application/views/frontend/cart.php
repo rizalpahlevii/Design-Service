@@ -74,21 +74,23 @@
 					</table>
 				</div>
 			</div>
-			<div class="row">
-				<div class="col-md-4">
-					<div class="form-group">
-						<label for="bank">Pembayaran</label>
-						<select name="bank" class="form-control" id="bank">
-							<?php foreach ($bank as $row) : ?>
-								<option value="<?= $row->id_bank ?>"><?= $row->nama_bank ?></option>
-							<?php endforeach; ?>
-						</select>
+			<?php if ($cart) : ?>
+				<div class="row">
+					<div class="col-md-4">
+						<div class="form-group">
+							<label for="bank">Pembayaran</label>
+							<select name="bank" class="form-control" id="bank">
+								<?php foreach ($bank as $row) : ?>
+									<option value="<?= $row->id_bank ?>"><?= $row->nama_bank ?></option>
+								<?php endforeach; ?>
+							</select>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<button class="btn btn-primary mt-4" id="btn-proses">Proses</button>
 					</div>
 				</div>
-				<div class="col-md-4">
-					<button class="btn btn-primary mt-4" id="btn-proses">Proses</button>
-				</div>
-			</div>
+			<?php endif; ?>
 		</div>
 	</div>
 	<!-- Footer -->

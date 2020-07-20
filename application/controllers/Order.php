@@ -64,13 +64,9 @@ class Order extends CI_Controller
 			->where('id_member', $this->session->userdata('id_member'))
 			->where('status', 'cart')
 			->where('expired_at >=', date('Y-m-d H:i:s'))->get();
-		if ($cek->num_rows() > 0) {
-			$data['cart'] = $cek->result();
-			$data['bank'] = $this->db->get('bank')->result();
-			$this->load->view('frontend/cart', $data);
-		} else {
-			redirect('home');
-		}
+		$data['cart'] = $cek->result();
+		$data['bank'] = $this->db->get('bank')->result();
+		$this->load->view('frontend/cart', $data);
 	}
 	public function hapus_cart($id_cart)
 	{
