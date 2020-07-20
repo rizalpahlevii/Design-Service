@@ -20,7 +20,7 @@
 										<th>Tgl Pemesanan</th>
 										<th>Kode</th>
 										<th>Member</th>
-										<th>Status</th>
+										<th>Status Pemesanan</th>
 										<th>Total Bayar</th>
 										<th>Bukti Bayar</th>
 										<th>Tanggal Bayar</th>
@@ -39,10 +39,56 @@
 											<td><?= $row->nama ?></td>
 											<td><?= $row->status_pemesanan ?></td>
 											<td><?= $row->total_bayar ?></td>
-											<td><?= $row->bukti_bayar == NULL ? '<span class="label bg-red">' . $row->status_pembayaran . '</span>' : '<a href="' . base_url('assets/bukti_bayar/' . $row->bukti_bayar) . '" target="_blank"><img src="' . base_url('assets/bukti_bayar/' . $row->bukti_bayar) . '" width="60px" alt=""></a>' ?></td>
-											<td><?= $row->tanggal_bayar == NULL ? '<span class="label bg-red">' . $row->status_pembayaran . '</span>' : $row->tanggal_bayar ?></td>
-											<td><?= $row->tanggal_konfirmasi == NULL ? '<span  class="label bg-red">' . $row->status_pembayaran . '</span>' : $row->tanggal_konfirmasi ?></td>
-											<td><span data-status="<?= $row->status_pembayaran ?>" data-id="<?= $row->id_pembayaran ?>" style="cursor: pointer;" class="label bg-blue change-status"><?= $row->status_pembayaran ?></span></td>
+											<td>
+												<?php if ($row->bukti_bayar == NULL) : ?>
+													<?php if ($row->status_pembayaran == "Belom Bayar") {
+														$color = 'red';
+													} elseif ($row->status_pembayaran == "Menunggu Konfirmasi") {
+														$color = 'yellow';
+													} elseif ($row->status_pembayaran == 'Pembayaran Valid') {
+														$color = 'green';
+													} else {
+														$color = 'red';
+													}
+
+													?>
+													<span class="label bg-<?php echo $color; ?>"><?= $row->status_pembayaran ?></span>
+												<?php else : ?>
+													<a href="<?= base_url('assets/bukti_bayar/' . $row->bukti_bayar) ?>" target="_blank"><img src="<?= base_url('assets/bukti_bayar/' . $row->bukti_bayar) ?>" width="60px" alt=""></a>
+												<?php endif; ?>
+
+											</td>
+											<td>
+												<?php if ($row->status_pembayaran == "Belom Bayar") {
+													$color = 'red';
+												} elseif ($row->status_pembayaran == "Menunggu Konfirmasi") {
+													$color = 'yellow';
+												} elseif ($row->status_pembayaran == 'Pembayaran Valid') {
+													$color = 'green';
+												} else {
+													$color = 'red';
+												}
+
+												?>
+												<?= $row->tanggal_bayar == NULL ? '<span class="label bg-' . $color . '">' . $row->status_pembayaran . '</span>' : $row->tanggal_bayar ?>
+											</td>
+											<td>
+												<?php if ($row->status_pembayaran == "Belom Bayar") {
+													$color = 'red';
+												} elseif ($row->status_pembayaran == "Menunggu Konfirmasi") {
+													$color = 'yellow';
+												} elseif ($row->status_pembayaran == 'Pembayaran Valid') {
+													$color = 'green';
+												} else {
+													$color = 'red';
+												}
+
+												?>
+												<?= $row->tanggal_konfirmasi == NULL ? '<span  class="label bg-' . $color . '">' . $row->status_pembayaran . '</span>' : $row->tanggal_konfirmasi ?>
+											</td>
+											<td>
+												<span data-status="<?= $row->status_pembayaran ?>" data-id="<?= $row->id_pembayaran ?>" style="cursor: pointer;" class="label bg-<?= $color ?> change-status"><?= $row->status_pembayaran ?></span>
+											</td>
 											<td><?= $row->nama_bank ?></td>
 
 										</tr>
