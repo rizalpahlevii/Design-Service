@@ -136,6 +136,7 @@
 					<li><a href="<?= site_url('backoffice/kategori/') ?>"><i class="fa fa-sticky-note"></i> <span>Kategori</span></a></li>
 					<li><a href="<?= site_url('backoffice/paket/') ?>"><i class="fa fa-archive"></i> <span>Paket</span></a></li>
 					<li><a href="<?= site_url('backoffice/user/') ?>"><i class="fa fa-user"></i> <span>User</span></a></li>
+					<li><a href="<?= site_url('backoffice/member/') ?>"><i class="fa fa-user"></i> <span>Member</span></a></li>
 					<li><a href="<?= site_url('backoffice/bank/') ?>"><i class="fa fa-money"></i> <span>Bank</span></a></li>
 					<li><a href="<?= site_url('backoffice/designer/') ?>"><i class="fa fa-users"></i> <span>Designer</span></a></li>
 					<li><a href="<?= site_url('backoffice/pemesanan/') ?>"><i class="fa fa-area-chart"></i> <span>Pemesanan</span></a></li>
