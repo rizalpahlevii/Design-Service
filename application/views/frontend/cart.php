@@ -129,7 +129,7 @@
 					success: function(response) {
 						if (response.status) {
 							Swal.fire("Berhasil", response.message, "success").then(() => {
-								location.href = "<?= site_url('order/home') ?>"
+								location.href = "<?= site_url('account/pemesanan') ?>"
 							});
 						} else {
 							Swal.fire("Gagal", response.message, "error");
